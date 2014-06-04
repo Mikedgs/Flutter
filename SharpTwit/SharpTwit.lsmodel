@@ -1,3 +1,61 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<model dslVersion="1.1.0.0" name="SharpTwit" targetNamespace="SharpTwit" xmlns="http://namespaces.mindscape.co.nz/lightspeed" />
- 
+<model xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.1.0.0" name="SharpTwit" targetNamespace="SharpTwit" databaseProvider="SqlServer2008" connectionString="Data Source=serval\sqlexpress;Initial Catalog=Flutter;Integrated Security=True;Pooling=False" pluralizedInDatabase="false" mediumTrustCompatibility="false" xmlns="http://namespaces.mindscape.co.nz/lightspeed">
+  <entities>
+    <entity name="User" identityType="Int32" cacheExpiry="0" tableName="Users">
+      <entityProperties>
+        <entityProperty name="UserName" columnName="user_name" privateSetter="false">
+          <validations>
+            <presenceValidation />
+            <lengthValidation minimumLength="0" maximumLength="50" />
+          </validations>
+        </entityProperty>
+        <entityProperty name="Email" privateSetter="false">
+          <validations>
+            <presenceValidation />
+            <emailValidation />
+            <lengthValidation minimumLength="0" maximumLength="50" />
+          </validations>
+        </entityProperty>
+        <entityProperty name="Password" privateSetter="false">
+          <validations>
+            <presenceValidation />
+            <lengthValidation minimumLength="0" maximumLength="50" />
+          </validations>
+        </entityProperty>
+        <entityProperty name="CreatedAt" dataType="DateTime" columnName="created_at" privateSetter="false" />
+        <entityProperty name="UpdatedAt" dataType="DateTime" columnName="updated_at" privateSetter="false" />
+      </entityProperties>
+      <oneToManyAssociations>
+        <oneToManyAssociation Id="2f925157-d069-467c-9190-7aae32c51fe4" collectionName="Tweets" backreferenceName="User" isNullable="false" columnName="user_id">
+          <entityMoniker name="/SharpTwit/Tweet" />
+        </oneToManyAssociation>
+        <oneToManyAssociation Id="6816a706-be0d-4e2a-8aa6-0d07f08df0ed" collectionName="FollowersTablesByUser" backreferenceName="User" isNullable="false" columnName="user_id">
+          <entityMoniker name="/SharpTwit/FollowersTable" />
+        </oneToManyAssociation>
+        <oneToManyAssociation Id="09833ec1-0a1e-49e7-8db6-7c2f642d20b4" collectionName="FollowersTablesByFollower" backreferenceName="Follower" isNullable="false" columnName="follower_id">
+          <entityMoniker name="/SharpTwit/FollowersTable" />
+        </oneToManyAssociation>
+      </oneToManyAssociations>
+    </entity>
+    <entity name="Tweet" identityType="Int32" cacheExpiry="0" tableName="Tweets">
+      <entityProperties>
+        <entityProperty name="TweetField" columnName="tweet" privateSetter="false">
+          <validations>
+            <presenceValidation />
+            <lengthValidation minimumLength="0" maximumLength="50" />
+          </validations>
+        </entityProperty>
+        <entityProperty name="CreatedAt" dataType="DateTime" columnName="created_at" privateSetter="false" />
+        <entityProperty name="UpdatedAt" dataType="DateTime" columnName="updated_at" privateSetter="false" />
+        <entityProperty name="OriginalTweetId" dataType="Int32" columnName="original_tweet_id" privateSetter="false" />
+      </entityProperties>
+    </entity>
+    <entity name="FollowersTable" identityType="Int32" cacheExpiry="0">
+      <oneToManyAssociations>
+        <oneToManyAssociation Id="b945a64f-9da3-40f0-949f-2c556d6f95cd" collectionName="Users" backreferenceName="FollowerTable" isNullable="false">
+          <entityMoniker name="/SharpTwit/User" />
+        </oneToManyAssociation>
+      </oneToManyAssociations>
+    </entity>
+  </entities>
+</model>

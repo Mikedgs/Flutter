@@ -1,7 +1,22 @@
-﻿
+﻿@using Flutter.Models;
+@model LoginViewModel
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Home Page";
 }
-
-<h2>Index</h2>
-
+<h2>HOME PAGE</h2>
+@if (!@Model.IsValidUser)
+{
+    <p>Invalid password</p>
+}
+<div class="form-class">
+    @using (Html.BeginForm("Login", "Home"))
+    {
+        @Html.LabelFor(x => x.User.UserName) @Html.TextBoxFor(x => x.User.UserName) <br />
+        @Html.LabelFor(x => x.User.Password) @Html.PasswordFor(x => x.User.Password) <br />
+        <input type="submit" value="Login" />
+    }
+</div>
+<br />
+<br />
+<a href="/Home/CreateAccount">Create new account</a>
