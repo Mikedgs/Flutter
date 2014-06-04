@@ -11,7 +11,6 @@ using SharpTwit;
 
 namespace Flutter.Models
 {
-{
     public class Repository<T> where T : Entity<int>
     {
         public Repository()
