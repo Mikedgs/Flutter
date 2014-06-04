@@ -12,7 +12,5 @@ namespace Flutter.Controllers
         {
             return View();
         }
-
-
     }
 }

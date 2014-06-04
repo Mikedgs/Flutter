@@ -8,11 +8,20 @@ namespace Flutter.Controllers
 {
     public class TweetController : Controller
     {
-        //
-        // GET: /Tweet/
+        [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            Tweet tweet = new Tweet();
+            tweet.UserId = Session["UserId"];
+            return View(model: tweet);
         }
+
+        [HttpPost]
+        public ActionResult Tweet(Tweet tweet)
+        {
+            TweetDb.AddTweet(tweet);
+            return Redirect("Index", "User");
+        }
+
 	}
 }
