@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SharpTwit;
+using Flutter.Models;
 
 namespace Flutter.Controllers
 {
@@ -12,15 +14,16 @@ namespace Flutter.Controllers
         public ActionResult Index()
         {
             Tweet tweet = new Tweet();
-            tweet.UserId = Session["UserId"];
+            tweet.UserId = (int)Session["UserId"];
             return View(model: tweet);
         }
 
         [HttpPost]
-        public ActionResult Tweet(Tweet tweet)
+        public RedirectResult Tweet(Tweet tweet)
         {
-            TweetDb.AddTweet(tweet);
-            return Redirect("Index", "User");
+            TweetDb tweetDb = new TweetDb();
+            tweetDb.AddTweet(tweet);
+            return Redirect("/User/Index");
         }
 
 	}

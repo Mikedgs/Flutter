@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Flutter.Models;
+using SharpTwit;
 
 namespace Flutter.Models
 {
@@ -14,6 +16,7 @@ namespace Flutter.Models
             tweet.CreatedAt = DateTime.Now;
             tweet.UpdatedAt = DateTime.Now;
             repo.Add(tweet);
+            repo.SaveChanges();
         }
     }
 }

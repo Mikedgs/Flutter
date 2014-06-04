@@ -1,7 +1,15 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-}
+﻿@using Flutter.Models
+@using SharpTwit
 
-<h2>Index</h2>
+@model Tweet
+
+<h2>Create New Tweet</h2>
+<div class="form-class">
+    @using (Html.BeginForm("Tweet", "Tweet"))
+    {
+        @Html.LabelFor(x => x.TweetField) @Html.TextBoxFor(x => x.TweetField)
+        <br />
+        <input type="submit" value="Create new tweet" />
+    }
+</div>
 
