@@ -18,13 +18,17 @@ namespace Flutter.Models
 
         public IEnumerable<Tweet> GetAllTweet()
         {
-            List<Tweet> top20 = new List<Tweet>();
+            List<Tweet> top2 = new List<Tweet>();
             var tweetList = repoTweet.GetAll().OrderBy(x => x.UpdatedAt);
-            for (int i = 0; i < 2; i++)
+            if (tweetList.Count() > 0)
             {
-                top20.Add(tweetList.ElementAt(i));
+                for (int i = 0; i < 2; i++)
+                {
+                    top2.Add(tweetList.ElementAt(i));
+                }
             }
-            return top20;
+            return top2;
         }
+
     }
 }

@@ -12,6 +12,7 @@ namespace Flutter.Models
         public IEnumerable<Tweet> TweetList { get; set; }
         public Repository<User> repoUser = new Repository<User>();
         public Repository<Tweet> repoTweet = new Repository<Tweet>();
+        public Repository<FollowTable> repoFollow = new Repository<FollowTable>();
 
         public UserViewModel(User userObject)
         {
@@ -23,6 +24,5 @@ namespace Flutter.Models
         {
             return repoTweet.Get(x => x.UserId == user.Id);            
         }
-
     }
 }

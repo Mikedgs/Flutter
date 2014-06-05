@@ -17,4 +17,20 @@
 
 <a href="/Tweet/Index">Create a new Tweet</a>
 <br />
+<h2>Followers</h2>
+<ul>
+    @foreach(var user in @Model.UserObject.FollowTablesByFollower)
+    {
+        <li>@user.User.UserName</li>
+    }
+</ul>
+
+<h2>Following</h2>
+<ul>
+    @foreach (var user in @Model.UserObject.FollowTablesByFollower)
+    {
+        <li>@user.User.UserName</li>
+    }
+</ul>
+
 <a href="/User/logout">Logout</a>
