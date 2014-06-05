@@ -4,8 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>User Page</h2>
+<h2>@Model.UserName's Page</h2>
 <p>Username: @Model.UserName</p>
 <p>Email: @Model.Email</p>
 
+<a href="/Tweet/Index">Create a new Tweet</a>
+<br />
 <a href="/User/logout">Logout</a>

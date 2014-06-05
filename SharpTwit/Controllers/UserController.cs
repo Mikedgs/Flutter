@@ -52,5 +52,11 @@ namespace Flutter.Controllers
             Session.Clear();
             return Redirect("/Login/Index");
         }
+
+        [HttpGet]
+        public ActionResult Profile()
+        {
+
+        }
     }
 }
