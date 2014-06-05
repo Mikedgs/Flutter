@@ -50,7 +50,7 @@ namespace Flutter.Controllers
         public ActionResult Logout()
         {
             Session.Clear();
-            return Redirect("Login/Index");
+            return Redirect("/Login/Index");
         }
     }
 }
