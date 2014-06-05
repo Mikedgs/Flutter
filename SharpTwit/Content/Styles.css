@@ -1,11 +1,13 @@
 ﻿@import url('http://fonts.googleapis.com/css?family=Lora');
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
+
 body {
     font-family: 'Open Sans', sans-serif;
     color: #005359;
     background-color: #4AAB79;
-    
+    /*background-image: url("../Content/images/foggy_birds.png");
+    background-repeat: repeat;*/
 }
 
 a {
