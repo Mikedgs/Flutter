@@ -5,8 +5,11 @@
     ViewBag.Title = "Index";
 }
 
+<div id="gravitar-profile">@Html.GravatarImage(@Model.UserObject.Email)</div>
+<div id="gravitar-edit"><a href="http://en.gravatar.com/">Edit my gravitar</a></div>
 <h2>@Model.UserObject.UserName.ToUpper()'s Page</h2>
-<p>Username:@Model.UserObject.UserName</p>
+
+<p>Username: @Model.UserObject.UserName</p>
 <p>Email: @Model.UserObject.Email</p>
 
 <ul>@foreach(var tweet in @Model.TweetList)
@@ -15,7 +18,7 @@
     }   
 </ul>
 
-<a href="/Tweet/Index">Create a new Tweet</a>
+<a href="/Tweet/Index">Create a new Flut</a>
 <br />
 <h2>Followers</h2>
 <ul>
@@ -34,3 +37,4 @@
 </ul>
 
 <a href="/User/logout">Logout</a>
+
