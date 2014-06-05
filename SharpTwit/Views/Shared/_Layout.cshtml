@@ -19,10 +19,16 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Profile", "", "category", null, null)</li>
-                    <li>@Html.ActionLink("Login", "Index", "Login")</li>
+                    <li>@Html.ActionLink("Profile", "Index", "User", null, null)</li>
+                    @if (Session["loggedIn"] == "true")
+                    {
+                        <li class="logMeOut">@Html.ActionLink("Logout", "Logout", "User")</li>
+                    }
+                    else
+                    {
+                        <li class="logMeIn">@Html.ActionLink("Login", "Index", "Login")</li>
+                    }
                 </ul>
-
             </div>
         </div>
     </div>
