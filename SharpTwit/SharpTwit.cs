@@ -29,7 +29,6 @@ namespace SharpTwit
     private System.DateTime _createdAt;
     [Column("updated_at")]
     private System.DateTime _updatedAt;
-    private int _followerTableId;
 
     #endregion
     
@@ -45,8 +44,6 @@ namespace SharpTwit
     public const string CreatedAtField = "CreatedAt";
     /// <summary>Identifies the UpdatedAt entity attribute.</summary>
     public const string UpdatedAtField = "UpdatedAt";
-    /// <summary>Identifies the FollowerTableId entity attribute.</summary>
-    public const string FollowerTableIdField = "FollowerTableId";
 
 
     #endregion
@@ -54,13 +51,11 @@ namespace SharpTwit
     #region Relationships
 
     [ReverseAssociation("User")]
-    private readonly EntityCollection<Tweet> _tweets = new EntityCollection<Tweet>();
-    [ReverseAssociation("User")]
-    private readonly EntityCollection<FollowersTable> _followersTablesByUser = new EntityCollection<FollowersTable>();
+    private readonly EntityCollection<FollowTable> _followTablesByUser = new EntityCollection<FollowTable>();
     [ReverseAssociation("Follower")]
-    private readonly EntityCollection<FollowersTable> _followersTablesByFollower = new EntityCollection<FollowersTable>();
-    [ReverseAssociation("Users")]
-    private readonly EntityHolder<FollowersTable> _followerTable = new EntityHolder<FollowersTable>();
+    private readonly EntityCollection<FollowTable> _followTablesByFollower = new EntityCollection<FollowTable>();
+    [ReverseAssociation("User")]
+    private readonly EntityCollection<Tweet> _tweets = new EntityCollection<Tweet>();
 
 
     #endregion
@@ -68,28 +63,21 @@ namespace SharpTwit
     #region Properties
 
     [System.Diagnostics.DebuggerNonUserCode]
+    public EntityCollection<FollowTable> FollowTablesByUser
+    {
+      get { return Get(_followTablesByUser); }
+    }
+
+    [System.Diagnostics.DebuggerNonUserCode]
+    public EntityCollection<FollowTable> FollowTablesByFollower
+    {
+      get { return Get(_followTablesByFollower); }
+    }
+
+    [System.Diagnostics.DebuggerNonUserCode]
     public EntityCollection<Tweet> Tweets
     {
       get { return Get(_tweets); }
-    }
-
-    [System.Diagnostics.DebuggerNonUserCode]
-    public EntityCollection<FollowersTable> FollowersTablesByUser
-    {
-      get { return Get(_followersTablesByUser); }
-    }
-
-    [System.Diagnostics.DebuggerNonUserCode]
-    public EntityCollection<FollowersTable> FollowersTablesByFollower
-    {
-      get { return Get(_followersTablesByFollower); }
-    }
-
-    [System.Diagnostics.DebuggerNonUserCode]
-    public FollowersTable FollowerTable
-    {
-      get { return Get(_followerTable); }
-      set { Set(_followerTable, value); }
     }
 
 
@@ -128,14 +116,6 @@ namespace SharpTwit
       set { Set(ref _updatedAt, value, "UpdatedAt"); }
     }
 
-    /// <summary>Gets or sets the ID for the <see cref="FollowerTable" /> property.</summary>
-    [System.Diagnostics.DebuggerNonUserCode]
-    public int FollowerTableId
-    {
-      get { return Get(ref _followerTableId, "FollowerTableId"); }
-      set { Set(ref _followerTableId, value, "FollowerTableId"); }
-    }
-
     #endregion
   }
 
@@ -156,10 +136,10 @@ namespace SharpTwit
     private System.DateTime _createdAt;
     [Column("updated_at")]
     private System.DateTime _updatedAt;
-    [Column("original_tweet_id")]
-    private int _originalTweetId;
     [Column("user_id")]
     private int _userId;
+    [Column("original_tweet_id")]
+    private System.Nullable<int> _originalTweetId;
 
     #endregion
     
@@ -171,18 +151,22 @@ namespace SharpTwit
     public const string CreatedAtField = "CreatedAt";
     /// <summary>Identifies the UpdatedAt entity attribute.</summary>
     public const string UpdatedAtField = "UpdatedAt";
-    /// <summary>Identifies the OriginalTweetId entity attribute.</summary>
-    public const string OriginalTweetIdField = "OriginalTweetId";
     /// <summary>Identifies the UserId entity attribute.</summary>
     public const string UserIdField = "UserId";
+    /// <summary>Identifies the OriginalTweetId entity attribute.</summary>
+    public const string OriginalTweetIdField = "OriginalTweetId";
 
 
     #endregion
     
     #region Relationships
 
+    [ReverseAssociation("OriginalTweet")]
+    private readonly EntityCollection<Tweet> _tweets = new EntityCollection<Tweet>();
     [ReverseAssociation("Tweets")]
     private readonly EntityHolder<User> _user = new EntityHolder<User>();
+    [ReverseAssociation("Tweets")]
+    private readonly EntityHolder<Tweet> _originalTweet = new EntityHolder<Tweet>();
 
 
     #endregion
@@ -190,10 +174,23 @@ namespace SharpTwit
     #region Properties
 
     [System.Diagnostics.DebuggerNonUserCode]
+    public EntityCollection<Tweet> Tweets
+    {
+      get { return Get(_tweets); }
+    }
+
+    [System.Diagnostics.DebuggerNonUserCode]
     public User User
     {
       get { return Get(_user); }
       set { Set(_user, value); }
+    }
+
+    [System.Diagnostics.DebuggerNonUserCode]
+    public Tweet OriginalTweet
+    {
+      get { return Get(_originalTweet); }
+      set { Set(_originalTweet, value); }
     }
 
 
@@ -218,19 +215,20 @@ namespace SharpTwit
       set { Set(ref _updatedAt, value, "UpdatedAt"); }
     }
 
-    [System.Diagnostics.DebuggerNonUserCode]
-    public int OriginalTweetId
-    {
-      get { return Get(ref _originalTweetId, "OriginalTweetId"); }
-      set { Set(ref _originalTweetId, value, "OriginalTweetId"); }
-    }
-
     /// <summary>Gets or sets the ID for the <see cref="User" /> property.</summary>
     [System.Diagnostics.DebuggerNonUserCode]
     public int UserId
     {
       get { return Get(ref _userId, "UserId"); }
       set { Set(ref _userId, value, "UserId"); }
+    }
+
+    /// <summary>Gets or sets the ID for the <see cref="OriginalTweet" /> property.</summary>
+    [System.Diagnostics.DebuggerNonUserCode]
+    public System.Nullable<int> OriginalTweetId
+    {
+      get { return Get(ref _originalTweetId, "OriginalTweetId"); }
+      set { Set(ref _originalTweetId, value, "OriginalTweetId"); }
     }
 
     #endregion
@@ -240,7 +238,7 @@ namespace SharpTwit
   [Serializable]
   [System.CodeDom.Compiler.GeneratedCode("LightSpeedModelGenerator", "1.0.0.0")]
   [System.ComponentModel.DataObject]
-  public partial class FollowersTable : Entity<int>
+  public partial class FollowTable : Entity<int>
   {
     #region Fields
   
@@ -263,23 +261,15 @@ namespace SharpTwit
     
     #region Relationships
 
-    [ReverseAssociation("FollowerTable")]
-    private readonly EntityCollection<User> _users = new EntityCollection<User>();
-    [ReverseAssociation("FollowersTablesByUser")]
+    [ReverseAssociation("FollowTablesByUser")]
     private readonly EntityHolder<User> _user = new EntityHolder<User>();
-    [ReverseAssociation("FollowersTablesByFollower")]
+    [ReverseAssociation("FollowTablesByFollower")]
     private readonly EntityHolder<User> _follower = new EntityHolder<User>();
 
 
     #endregion
     
     #region Properties
-
-    [System.Diagnostics.DebuggerNonUserCode]
-    public EntityCollection<User> Users
-    {
-      get { return Get(_users); }
-    }
 
     [System.Diagnostics.DebuggerNonUserCode]
     public User User
@@ -335,9 +325,9 @@ namespace SharpTwit
       get { return this.Query<Tweet>(); }
     }
     
-    public System.Linq.IQueryable<FollowersTable> FollowersTables
+    public System.Linq.IQueryable<FollowTable> FollowTables
     {
-      get { return this.Query<FollowersTable>(); }
+      get { return this.Query<FollowTable>(); }
     }
     
   }
