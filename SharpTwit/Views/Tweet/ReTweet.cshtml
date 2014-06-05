@@ -1,0 +1,18 @@
+﻿@using Flutter.Models
+@using SharpTwit
+
+@model RetweetViewModel
+<h2>Create New Tweet</h2>
+
+<div class="form-class">
+    @using (Html.BeginForm("Tweet", "Tweet"))
+    {
+        @Html.HiddenFor(x => x.newTweet.UserId)
+        @Html.HiddenFor(x => x.Twet.Id)
+        @Html.Label("Tweet: ") @Html.TextBoxFor(x => x.newTweet.TweetField)
+        <br />
+        <input type="submit" value="ReTweet" />
+    }
+</div>
+<br />
+<a href="/User/Index">Return to user page</a>
