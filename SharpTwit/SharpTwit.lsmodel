@@ -26,14 +26,14 @@
         <entityProperty name="UpdatedAt" dataType="DateTime" columnName="updated_at" privateSetter="false" />
       </entityProperties>
       <oneToManyAssociations>
-        <oneToManyAssociation Id="2f925157-d069-467c-9190-7aae32c51fe4" collectionName="Tweets" backreferenceName="User" isNullable="false" columnName="user_id">
+        <oneToManyAssociation Id="15ecbc73-73c7-4ab6-8ed0-c2c3e2fdd680" collectionName="FollowTablesByUser" backreferenceName="User" isNullable="false" columnName="user_id">
+          <entityMoniker name="/SharpTwit/FollowTable" />
+        </oneToManyAssociation>
+        <oneToManyAssociation Id="3b93c05e-c90e-4588-9fde-d3366f39c5e3" collectionName="FollowTablesByFollower" backreferenceName="Follower" isNullable="false" columnName="follower_id">
+          <entityMoniker name="/SharpTwit/FollowTable" />
+        </oneToManyAssociation>
+        <oneToManyAssociation Id="66658cfb-c3ef-4be8-8d53-25f36fa8250d" collectionName="Tweets" backreferenceName="User" isNullable="false" columnName="user_id">
           <entityMoniker name="/SharpTwit/Tweet" />
-        </oneToManyAssociation>
-        <oneToManyAssociation Id="6816a706-be0d-4e2a-8aa6-0d07f08df0ed" collectionName="FollowersTablesByUser" backreferenceName="User" isNullable="false" columnName="user_id">
-          <entityMoniker name="/SharpTwit/FollowersTable" />
-        </oneToManyAssociation>
-        <oneToManyAssociation Id="09833ec1-0a1e-49e7-8db6-7c2f642d20b4" collectionName="FollowersTablesByFollower" backreferenceName="Follower" isNullable="false" columnName="follower_id">
-          <entityMoniker name="/SharpTwit/FollowersTable" />
         </oneToManyAssociation>
       </oneToManyAssociations>
     </entity>
@@ -47,15 +47,13 @@
         </entityProperty>
         <entityProperty name="CreatedAt" dataType="DateTime" columnName="created_at" privateSetter="false" />
         <entityProperty name="UpdatedAt" dataType="DateTime" columnName="updated_at" privateSetter="false" />
-        <entityProperty name="OriginalTweetId" dataType="Int32" columnName="original_tweet_id" privateSetter="false" />
       </entityProperties>
-    </entity>
-    <entity name="FollowersTable" identityType="Int32" cacheExpiry="0">
       <oneToManyAssociations>
-        <oneToManyAssociation Id="b945a64f-9da3-40f0-949f-2c556d6f95cd" collectionName="Users" backreferenceName="FollowerTable" isNullable="false">
-          <entityMoniker name="/SharpTwit/User" />
+        <oneToManyAssociation Id="d1752014-800a-44c3-97bd-a6ce348ca425" collectionName="Tweets" backreferenceName="OriginalTweet" isNullable="true" columnName="original_tweet_id">
+          <entityMoniker name="/SharpTwit/Tweet" />
         </oneToManyAssociation>
       </oneToManyAssociations>
     </entity>
+    <entity name="FollowTable" identityType="Int32" cacheExpiry="0" />
   </entities>
 </model>
