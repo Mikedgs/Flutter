@@ -34,7 +34,7 @@ namespace Flutter.Controllers
             {
                 var rvDic = new RouteValueDictionary();
                 rvDic.Add("validUser", false);
-                return RedirectToAction("Index", "Home", rvDic);
+                return RedirectToAction("Index", "Login", rvDic);
             }
         }
 	}
