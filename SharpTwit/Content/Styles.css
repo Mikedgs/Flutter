@@ -1,0 +1,82 @@
+﻿@import url('http://fonts.googleapis.com/css?family=Lora');
+
+body {
+    font-family: Lora, sans-serif;
+    color: #566299;
+    background-color: #5EBA9A;
+    
+}
+
+a {
+    color: #FF530D;
+    text-decoration: none;
+}
+
+.navbar-brand {
+     font-family: Lora;
+     font-size: 50px;
+     font-weight:700;
+     margin: 10px 0px;
+
+}
+
+.button {
+    font-family: Lora;
+    color: #D6E4FF;
+    background: #0C88CC;
+    margin: 20px 0px;
+    border-radius: 7px;
+}
+
+.button:hover {
+    background-color: #4CC4A7;
+}
+
+
+ul.nav {
+    margin: 10px 0px 0px 0px;
+    list-style: none;
+    float: right;
+    font-family: Lora;
+    font-size: 20px;
+}
+
+ul.nav li {
+    float: left;
+    margin-right: 40px;
+
+
+}
+
+ul.nav li a {
+    color: #FF530D;
+}
+
+h1 {
+    font-size: 30px;
+
+}
+
+h2 {
+    font-family: Lora;
+    font-size: 25px;
+    font-weight: 800;
+    margin: 40px 0px 10px 0px;
+}
+
+h3 {
+    font-family: Lora;
+    font-size: 20px;
+
+}
+
+h4 {
+    font-family: Lora;
+    font-size: 18px;
+}
+
+label {
+    font-family: Lora;
+    width: 100px;
+    margin: 10px 0px;
+}
