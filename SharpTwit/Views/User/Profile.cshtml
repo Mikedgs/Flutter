@@ -1,0 +1,15 @@
+﻿@using Flutter.Models
+@model ProfileViewModel
+
+@{
+    ViewBag.Title = "Profile";
+}
+
+<h2>@Model.UserName's Page</h2>
+
+<ul>@foreach(var tweet in @Model.TweetList)
+    {
+        <li>@tweet.TweetField</li>   
+    }
+    
+</ul>
