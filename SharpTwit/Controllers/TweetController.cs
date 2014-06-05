@@ -35,16 +35,18 @@ namespace Flutter.Controllers
         public ActionResult ReTweet(int tweetId)
         {
             var tweet = tweetRepo.FindById(tweetId);
-            RetweetViewModel model = new RetweetViewModel(tweet);
-            model.newTweet.UserId = (int)Session["UserId"];
-            return View(model);
+            var newTweet = new Tweet() { OriginalTweetId = tweet.Id };
+            newTweet.UserId = (int)Session["UserId"];
+            //RetweetViewModel model = new RetweetViewModel(tweet);
+            //model.newTweet.UserId = (int)Session["UserId"];
+            return View(newTweet);
         }
 
         [HttpPost]
-        public ActionResult ReTweet(Tweet twit)
+        public ActionResult ReTweet(Tweet newTweet)
         {
             TweetDb tweetDb = new TweetDb();
-            tweetDb.AddTweet(twit);
+            tweetDb.AddTweet(newTweet);
             return Redirect("/User/Index");
         }
 

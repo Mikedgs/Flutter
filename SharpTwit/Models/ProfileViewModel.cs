@@ -12,11 +12,14 @@ namespace Flutter.Models
         public IEnumerable<Tweet> TweetList { get; set; }
         public Repository<User> repoUser = new Repository<User>();
         public Repository<Tweet> repoTweet = new Repository<Tweet>();
+        public int UserId { get; set; }
+        public User User { get; set; }
 
         public ProfileViewModel(string username)
         {
             UserName = username;
             TweetList = GetTweet(UserName);
+            UserId = repoUser.Get(x => x.UserName == UserName).First().Id;
         }
 
         public IEnumerable<Tweet> GetTweet(string username)

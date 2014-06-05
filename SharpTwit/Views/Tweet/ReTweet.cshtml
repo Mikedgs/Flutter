@@ -1,17 +1,17 @@
 ﻿@using Flutter.Models
 @using SharpTwit
 
-@model RetweetViewModel
-<h2>Create New Tweet</h2>
+@model Tweet
+<h2>Retweet</h2>
 
 <div class="form-class">
-    @using (Html.BeginForm("Tweet", "Tweet"))
+    @using (Html.BeginForm("ReTweet", "Tweet"))
     {
-        @Html.HiddenFor(x => x.newTweet.UserId)
-        @Html.HiddenFor(x => x.Twet.Id)
-        @Html.Label("Tweet: ") @Html.TextBoxFor(x => x.newTweet.TweetField)
+        @Html.HiddenFor(x => x.UserId)
+        @Html.HiddenFor(x => x.OriginalTweetId)
+        @Html.Label("Tweet: ") @Html.TextBoxFor(x => x.TweetField)
         <br />
-        <input type="submit" value="ReTweet" />
+        <input type="submit" value="Retweet" />
     }
 </div>
 <br />

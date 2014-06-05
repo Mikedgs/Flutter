@@ -246,7 +246,7 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\CreateUser.cshtml" />
     <Content Include="Views\User\Profile.cshtml" />
-    <Content Include="Views\Tweet\ReTweet.cshtml" />
+    <Content Include="Views\Tweet\Retweet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
