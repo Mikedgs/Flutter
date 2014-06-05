@@ -20,7 +20,7 @@ namespace Flutter.Models
         {
             List<Tweet> top20 = new List<Tweet>();
             var tweetList = repoTweet.GetAll().OrderBy(x => x.UpdatedAt);
-            for (int i = 0; i < 20; i++ )
+            for (int i = 0; i < 2; i++)
             {
                 top20.Add(tweetList.ElementAt(i));
             }
