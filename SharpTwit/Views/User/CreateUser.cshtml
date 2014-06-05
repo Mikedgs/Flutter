@@ -1,0 +1,23 @@
+﻿@model User
+
+@{
+    ViewBag.Title = "CreateUser";
+}
+
+<h2>Create New User</h2>
+<div class="form-class">
+    @using (Html.BeginForm("Createuser", "User"))
+    {
+        @Html.LabelFor(x => x.UserName) @Html.TextBoxFor(x => x.UserName)
+        <br />
+        @Html.LabelFor(x => x.Password) @Html.PasswordFor(x => x.Password)
+        <br />
+        @Html.LabelFor(x => x.Email) @Html.TextBoxFor(x => x.Email)
+        <br />
+        <input type="submit" value="Make new account" />
+    }
+</div>
+
+<br />
+
+
