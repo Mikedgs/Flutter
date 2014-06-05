@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using SharpTwit;
+using Flutter.Models;
 
 namespace Flutter.Models
 {
@@ -19,6 +20,7 @@ namespace Flutter.Models
             UserObject = userObject;
             TweetList = GetTweet(UserObject);
         }
+        
 
         public IEnumerable<Tweet> GetTweet(User user)
         {
