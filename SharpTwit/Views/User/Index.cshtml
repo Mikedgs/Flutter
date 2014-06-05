@@ -1,12 +1,19 @@
-﻿@model User
+﻿@using Flutter.Models
+@model UserViewModel
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>@Model.UserName's Page</h2>
-<p>Username: @Model.UserName</p>
-<p>Email: @Model.Email</p>
+<h2>@Model.UserObject.UserName.ToUpper()'s Page</h2>
+<p>Username:@Model.UserObject.UserName</p>
+<p>Email: @Model.UserObject.Email</p>
+
+<ul>@foreach(var tweet in @Model.TweetList)
+    {
+        <li>@tweet.TweetField</li>
+    }   
+</ul>
 
 <a href="/Tweet/Index">Create a new Tweet</a>
 <br />

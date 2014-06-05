@@ -20,7 +20,8 @@ namespace Flutter.Controllers
             if ((string)Session["loggedIn"] == "true") // Checks if user is logged in
             {
                 var user = _repoUser.FindById((int)Session["UserId"]);
-                return View(user);
+                UserViewModel model = new UserViewModel(user);
+                return View(model);
             }
             else
                 return Redirect("/Login/Index"); // View Go to login page
@@ -55,9 +56,10 @@ namespace Flutter.Controllers
         }
 
         [HttpGet]
-        public ActionResult Profile()
+        public ActionResult Profile(string username)
         {
-
+            ProfileViewModel profile = new ProfileViewModel(username);
+            return View(profile);
         }
     }
 }
