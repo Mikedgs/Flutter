@@ -27,8 +27,10 @@ namespace Flutter.Controllers
             User validUser = new UserModel().Validate(user);
             if (validUser != null)
             {
+                Session["loggedIn"] = "true";
+                Session["UserId"] = validUser.Id;
                 Session["UserName"] = validUser.UserName;
-                return Redirect("/user/Profile?userName=" + validUser.UserName);
+                return Redirect("/user/index");
             }
             else
             {

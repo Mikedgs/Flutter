@@ -39,6 +39,7 @@ namespace Flutter.Controllers
         {
             addNewUser.CreatedAt = DateTime.Now;
             addNewUser.UpdatedAt = DateTime.Now;
+            addNewUser.Password = new HashProvider().GetMD5Hash(addNewUser.Password);
             _repoUser.Add(addNewUser);
             _repoUser.SaveChanges();
             Session["loggedIn"] = "true";
