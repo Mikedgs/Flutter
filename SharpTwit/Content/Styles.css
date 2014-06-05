@@ -3,8 +3,8 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
-    color: #566299;
-    background-color: #C0F0E2;
+    color: #005359;
+    background-color: #4AAB79;
     
 }
 
@@ -30,15 +30,23 @@ a.hover {
 
 .button {
     font-family: Lora;
+    font-weight: 700;
     color: #D6E4FF;
-    background: #0C88CC;
+    background: #428bca;
     margin: 20px 0px;
     border-radius: 7px;
+    border-color: #00000;
+    border-width: 0px;
+
 }
 
 .button:hover {
-    background-color: #4CC4A7;
+    background-color: #005359;
+    font-family: Lora;
+    font-weight: 700;
+    color: #D6E4FF;
 }
+
 
 
 ul.nav {
@@ -60,15 +68,18 @@ ul.nav li a {
 }
 
 
-.loggedIn {
+.logMeOut {
     background-color: #590000;
     border-radius: 7px;
 }
 
 
-.loggedOut {
-    background-color: #428bca;
+.logMeIn {
+    color: #ffffff;
     border-radius: 7px;
+    background-color: #428bca;
+    border-color: #000000;
+    border-width: 1px;
 }
 
 
