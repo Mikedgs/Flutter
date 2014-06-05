@@ -9,7 +9,9 @@
 
 <ul>@foreach(var tweet in @Model.TweetList)
     {
-        <li>@tweet.TweetField</li>   
+        <li>@tweet.TweetField</li> 
+        <p><a class="btn btn-default" href="http://localhost:51339/Tweet/ReTweet?tweetId=@Model.UserId">Retweet &raquo;</a></p>  
     }
+
     
 </ul>

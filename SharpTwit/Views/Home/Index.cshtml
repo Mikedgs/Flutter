@@ -15,7 +15,7 @@
         <h2>Latest Tweets</h2>
         <ul>@foreach(var tweet in @Model.GetAllTweet())
             {
-               <li>@tweet.TweetField</li> 
+               <li><a href="/Tweet/Retweet?tweetid=@tweet.Id">@tweet.TweetField</a></li> 
             }
             
         </ul>
