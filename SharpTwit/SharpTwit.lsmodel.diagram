@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<minimalLanguageDiagram dslVersion="1.1.0.0" absoluteBounds="0, 0, 12.625, 8.5" name="SharpTwit">
+<minimalLanguageDiagram dslVersion="1.1.0.0" absoluteBounds="0, 0, 11, 8.5" name="SharpTwit">
   <modelMoniker name="/SharpTwit" />
   <nestedChildShapes>
     <entityShape Id="2f90be50-ebce-469d-9712-4f19e14c90ac" absoluteBounds="5.625, 2.125, 1.5, 1.4715071614583333">
@@ -14,13 +14,13 @@
         <elementListCompartment Id="1f2d521d-321b-4191-a471-332315002c82" absoluteBounds="8.89, 4.66, 1.4700000000000002, 0.576904296875" name="Properties" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </entityShape>
-    <entityShape Id="4eb812ed-7075-40aa-b0fb-dba6331c70f1" absoluteBounds="10.875, 3.75, 1.5, 0.50999999999999979">
+    <entityShape Id="4eb812ed-7075-40aa-b0fb-dba6331c70f1" absoluteBounds="5.75, 0.75, 1.5, 0.50999999999999979">
       <entityMoniker name="/SharpTwit/FollowTable" />
       <nestedChildShapes>
-        <elementListCompartment Id="a34fe726-0433-43ef-ad4d-db42bde1984b" absoluteBounds="10.89, 4.16, 1.4700000000000002, 0" name="Properties" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="a34fe726-0433-43ef-ad4d-db42bde1984b" absoluteBounds="5.7650000000000006, 1.1600000000000001, 1.4700000000000002, 0" name="Properties" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </entityShape>
-    <oneToManyAssociationConnector edgePoints="[(7.125 : 2.86075358072917); (9.54166666666667 : 2.86075358072917 : JumpStart); (9.70833333333333 : 2.86075358072917 : JumpEnd); (11.625 : 2.86075358072917); (11.625 : 3.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <oneToManyAssociationConnector edgePoints="[(6.4375 : 2.125); (6.4375 : 1.26)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <oneToManyAssociationMoniker Id="15ecbc73-73c7-4ab6-8ed0-c2c3e2fdd680" />
       <relativeChildShapes />
       <nodes>
@@ -28,7 +28,7 @@
         <entityShapeMoniker Id="4eb812ed-7075-40aa-b0fb-dba6331c70f1" />
       </nodes>
     </oneToManyAssociationConnector>
-    <oneToManyAssociationConnector edgePoints="[(7.125 : 3.25988287109375); (11.2187475 : 3.25988287109375); (11.2187475 : 3.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <oneToManyAssociationConnector edgePoints="[(6.84375 : 2.125); (6.84375 : 1.26)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <oneToManyAssociationMoniker Id="3b93c05e-c90e-4588-9fde-d3366f39c5e3" />
       <relativeChildShapes />
       <nodes>
