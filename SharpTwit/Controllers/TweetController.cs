@@ -10,6 +10,8 @@ namespace Flutter.Controllers
 {
     public class TweetController : Controller
     {
+        Repository<Tweet> tweetRepo = new Repository<Tweet>();
+
         [HttpGet]
         public ActionResult Index()
         {
@@ -26,6 +28,25 @@ namespace Flutter.Controllers
         {
             TweetDb tweetDb = new TweetDb();
             tweetDb.AddTweet(tweet);
+            return Redirect("/User/Index");
+        }
+
+        [HttpGet]
+        public ActionResult ReTweet(int tweetId)
+        {
+            var tweet = tweetRepo.FindById(tweetId);
+            var newTweet = new Tweet() { OriginalTweetId = tweet.Id };
+            newTweet.UserId = (int)Session["UserId"];
+            //RetweetViewModel model = new RetweetViewModel(tweet);
+            //model.newTweet.UserId = (int)Session["UserId"];
+            return View(newTweet);
+        }
+
+        [HttpPost]
+        public ActionResult ReTweet(Tweet newTweet)
+        {
+            TweetDb tweetDb = new TweetDb();
+            tweetDb.AddTweet(newTweet);
             return Redirect("/User/Index");
         }
 

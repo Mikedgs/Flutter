@@ -13,6 +13,7 @@ namespace Flutter.Models
 
         public void AddTweet(Tweet tweet)
         {
+            tweet.TweetField = tweet.TweetField + " RT ";
             tweet.CreatedAt = DateTime.Now;
             tweet.UpdatedAt = DateTime.Now;
             repo.Add(tweet);
