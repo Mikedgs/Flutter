@@ -1,7 +1,11 @@
-﻿
+﻿@model User
+
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>User Page</h2>
+<p>Username: @Model.UserName</p>
+<p>Email: @Model.Email</p>
 
+<a href="User/logout">Logout</a>
