@@ -4,12 +4,11 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
+<div class="jumbotron flutterBanner">
     <h1>Flutter</h1>
     <p class="lead">Who needs twitter when you can flutter</p>
     <p><a href="http://localhost:51339/User/CreateUser" class="btn btn-primary btn-large">Join Now! &raquo;</a></p>
 </div>
-
 <div class="row">   
     <div class="col-md-8">
         <h2>Latest Tweets</h2>
@@ -17,7 +16,6 @@
             {
                <li><a href="/Tweet/Retweet?tweetid=@tweet.Id">@tweet.TweetField</a></li> 
             }
-            
         </ul>
         <p><a class="btn btn-default" href="http://localhost:51339/Home/Index">Refresh Tweets &raquo;</a></p>
     </div>
@@ -28,7 +26,6 @@
             {
                 <li><a href="http://localhost:51339/User/Profile?username=@user.UserName" > @user.UserName</a></li>
             }
-
     </ul>
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">See all Users &raquo;</a></p>
     </div>
