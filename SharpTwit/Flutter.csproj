@@ -171,6 +171,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\FollowDb.cs" />
     <Compile Include="Models\Gravitar.cs" />
     <Compile Include="Models\HashProvider.cs" />
     <Compile Include="Models\HomeViewModel.cs" />

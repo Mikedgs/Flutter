@@ -7,7 +7,11 @@
 
 <h2>@Model.UserName's Page</h2>
 
-
+@using (Html.BeginForm("Follow", "User"))
+    {
+        @Html.HiddenFor(username => @Model.UserName)
+        <input class="button" type="submit" value="Follow">
+    }
 
 <ul>@foreach(var tweet in @Model.TweetList)
     {

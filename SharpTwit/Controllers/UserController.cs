@@ -63,6 +63,7 @@ namespace Flutter.Controllers
             return View(profile);
         }
 
+        [HttpPost]
         public ActionResult Follow(string username)
         {
             var follow = new FollowTable();
