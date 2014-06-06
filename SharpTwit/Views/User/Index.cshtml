@@ -45,12 +45,22 @@
         </ul>
 
     </div>
-
+    <h2>Followers Tweets</h2>
     <div style="padding-top: 40px" class="col-md-4">
         <ul>
             @foreach (var tweet in @Model.followersTweets)
             {
                 <li>@tweet.TweetField</li>
+            }
+        </ul>
+    </div>
+
+    <h2>My Favourite Tweets</h2>
+    <div style="padding-top: 40px" class="col-md-4">
+        <ul>
+            @foreach (var tweet in @Model.UserObject.UserFavourites)
+            {
+                <li>@tweet.FavouriteTweet.TweetField</li>
             }
         </ul>
     </div>

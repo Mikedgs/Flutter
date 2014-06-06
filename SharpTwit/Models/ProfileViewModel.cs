@@ -25,7 +25,7 @@ namespace Flutter.Models
         public IEnumerable<Tweet> GetTweet(string username)
         {
             var user = repoUser.Get(x => x.UserName == username).First();
-            return repoTweet.Get(x => x.UserId == user.Id);     
+            return repoTweet.Get(x => x.UserId == user.Id).OrderByDescending(x => x.UpdatedAt);     
         }
 
     }
