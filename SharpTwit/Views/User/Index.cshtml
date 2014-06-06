@@ -4,35 +4,59 @@
 @{
     ViewBag.Title = "Index";
 }
+<div class="row">
+    <div class="col-md-4">
+        <div style="margin-top: 30px">@Html.GravatarImage(@Model.UserObject.Email)</div>
+        <div><a href="http://en.gravatar.com/">Edit my gravitar</a></div>
+        <h2 style="clear: both">@Model.UserObject.UserName.ToUpper()'s Page</h2>
 
-<div id="gravitar-profile">@Html.GravatarImage(@Model.UserObject.Email)</div>
-<div id="gravitar-edit"><a href="http://en.gravatar.com/">Edit my gravitar</a></div>
-<h2>@Model.UserObject.UserName.ToUpper()'s Page</h2>
+        <p>Username: @Model.UserObject.UserName</p>
+        <p>Email: @Model.UserObject.Email</p>
 
-<p>Username: @Model.UserObject.UserName</p>
-<p>Email: @Model.UserObject.Email</p>
+        <h2>Latest Fluts</h2>
+        <ul>
+            @foreach (var tweet in @Model.TweetList)
+            {
+                <li style="list-style: none">@tweet.TweetField</li>
+            }
+        </ul>
 
-<ul>@foreach(var tweet in @Model.TweetList)
-    {
-        <li>@tweet.TweetField</li>
-    }   
-</ul>
+        <a class="button" href="/Tweet/Index">Create a new Flut</a>
+        <br />
+    </div>
 
-<a class="button" href="/Tweet/Index">Create a new Flut</a>
-<br />
-<h2>Followers</h2>
-<ul>
-    @foreach(var user in @Model.PeopleWhoFollowMe)
-    {
-        <li><a href="/User/Profile?@user.Id">@user.UserName</a></li>
-    }
-</ul>
+    <div class="col-md-4">
+        <h2>Followers</h2>
+        <ul style="padding-left: 0px">
+            @foreach (var user in @Model.PeopleWhoFollowMe)
+            {
+                <div style="float: left">@Html.GravatarImage(@user.Email, size: 40)</div>
+                <li><a style="margin-left: 10px" href="/User/Profile?username=@user.UserName">@user.UserName</a></li>
+            }
+        </ul>
 
-<h2>People I am following</h2>
-<ul>
-    @foreach (var user in @Model.UserObject.FollowTablesByFollower)
-    {
-        <li><a href="/User/Profile?@user.User.Id">@user.User.UserName</a></li>
-    }
-</ul>
+        <h2>People I am following</h2>
+        <ul style="padding-left: 0px">
+            @foreach (var user in @Model.UserObject.FollowTablesByFollower)
+            {
+                <div style="float: left">@Html.GravatarImage(@user.User.Email, size: 40)</div>
+                <li><a style="margin-left: 10px" href="/User/Profile?username=@user.User.UserName">@user.User.UserName</a></li>
+            }
+        </ul>
+
+    </div>
+
+    <div style="padding-top: 40px" class="col-md-4">
+        <ul>
+            @foreach (var tweet in @Model.followersTweets)
+            {
+                <li>@tweet.TweetField</li>
+            }
+        </ul>
+    </div>
+</div>
+
+
+
+
 
