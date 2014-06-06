@@ -6,7 +6,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     color: #005359;
     background-color: #4AAB79;
-    background-image: url("../Content/images/greenBG.jpg");
+    background-image: url("/Content/images/greenBG.jpg");
     background-repeat: repeat;
 }
 
