@@ -4,7 +4,7 @@
 
 @model Tweet
            
-<h2>Retweet: @ViewBag.originaltweetmessage</h2>
+<h2>Retweet: @Model.OriginalTweet.TweetField</h2>
 
 <div class="form-class">
     @using (Html.BeginForm("ReTweet", "Tweet"))
