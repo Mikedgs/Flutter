@@ -10,7 +10,13 @@
 @using (Html.BeginForm("Follow", "User"))
     {
         @Html.HiddenFor(username => @Model.UserName)
+    if (@Model.IsUserFollowing == false)
+    { 
         <input class="button" type="submit" value="Follow">
+    } else
+    {
+        <input class="button" type="submit" value="UnFollow">
+    }
     }
 
 <ul>@foreach (var tweet in @Model.TweetList)

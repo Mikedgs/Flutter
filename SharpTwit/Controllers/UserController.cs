@@ -59,7 +59,8 @@ namespace Flutter.Controllers
         [HttpGet]
         public ActionResult Profile(string username)
         {
-            ProfileViewModel profile = new ProfileViewModel(username);
+            var currentUserId = (int)Session["userId"];
+            ProfileViewModel profile = new ProfileViewModel(username, currentUserId);
             return View(profile);
         }
 
@@ -72,7 +73,7 @@ namespace Flutter.Controllers
             follow.FollowerId = (Int32)Session["UserId"];
             _repoFollowTable.Add(follow);
             _repoFollowTable.SaveChanges();
-            return Redirect("/User/Profile?=" + username);
+            return Redirect("/User/Profile?username=" + username);
         }
 
 
