@@ -11,6 +11,8 @@ namespace Flutter.Controllers
     public class TweetController : Controller
     {
         Repository<Tweet> tweetRepo = new Repository<Tweet>();
+        Repository<User> userRepo = new Repository<User>();
+        Repository<UserFavourite> favRepo = new Repository<UserFavourite>();
 
         [HttpGet]
         public ActionResult Index()
@@ -47,6 +49,16 @@ namespace Flutter.Controllers
         {
             TweetDb tweetDb = new TweetDb();
             tweetDb.AddTweet(newTweet);
+            return Redirect("/User/Index");
+        }
+
+        [HttpGet]
+        public ActionResult Favourite(int tweetId)
+        {
+            var userId = (int)Session["userId"];
+            UserFavourite uF = new UserFavourite() { FavouriteTweetId = tweetId, UserWhoFavouritesId = userId };
+            favRepo.Add(uF);
+            favRepo.SaveChanges();
             return Redirect("/User/Index");
         }
 
