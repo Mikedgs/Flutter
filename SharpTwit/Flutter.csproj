@@ -194,6 +194,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Grid.css" />
     <Content Include="Content\images\foggy_birds.png" />
+    <Content Include="Content\images\greenBG.jpg" />
     <Content Include="Content\images\kit.jpg" />
     <Content Include="Content\Styles.css" />
     <Content Include="favicon.ico" />

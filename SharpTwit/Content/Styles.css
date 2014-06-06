@@ -6,9 +6,27 @@ body {
     font-family: 'Open Sans', sans-serif;
     color: #005359;
     background-color: #4AAB79;
-    /*background-image: url("../Content/images/foggy_birds.png");
-    background-repeat: repeat;*/
+    background-image: url("../Content/images/greenBG.jpg");
+    background-repeat: repeat;
 }
+
+
+
+.logMeOut {
+    background-color: #590000;
+    border-radius: 7px;
+
+}
+
+
+.logMeIn {
+    color: #FFFFFF;
+    border-radius: 7px;
+    background-color: #346334;
+    border-color: #000000;
+    border-width: 1px;
+}
+
 
 .body-content{
     background-color: white; 
@@ -32,6 +50,9 @@ a.hover {
 
 }
 
+.flutterBanner {
+    border-bottom: 5px solid #EEEEEE;
+}
 
 
 .button {
@@ -41,7 +62,7 @@ a.hover {
     background: #428bca;
     margin: 20px 0px;
     border-radius: 7px;
-    border-color: #00000;
+    border-color: #000000;
     border-width: 0px;
 
 }
@@ -69,24 +90,11 @@ ul.nav li {
 }
 
 ul.nav li a {
-    color: #1FA6BA;
+
     padding: 5px 5px 5px 5px;
 }
 
 
-.logMeOut {
-    background-color: #590000;
-    border-radius: 7px;
-}
-
-
-.logMeIn {
-    color: #ffffff;
-    border-radius: 7px;
-    background-color: #428bca;
-    border-color: #000000;
-    border-width: 1px;
-}
 
 
 
