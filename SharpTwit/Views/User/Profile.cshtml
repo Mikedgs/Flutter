@@ -13,11 +13,12 @@
         <input class="button" type="submit" value="Follow">
     }
 
-<ul>@foreach(var tweet in @Model.TweetList)
-    {
-        <li>@tweet.TweetField</li> 
-        <p><a class="btn btn-default" href="http://localhost:51339/Tweet/ReTweet?tweetId=@tweet.Id">Retweet &raquo;</a></p>  
-    }
+<ul>@foreach (var tweet in @Model.TweetList)
+{
+    <li>@tweet.TweetField
 
-    
+    <a class="btn btn-default" href="/Tweet/ReTweet?tweetId=@tweet.Id">Retweet &raquo;</a>
+    <a class="btn btn-default" href="/Tweet/Favourite?tweetId=@tweet.Id">Favourite &raquo;</a>
+    </li>
+}
 </ul>
