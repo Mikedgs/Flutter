@@ -11,6 +11,7 @@ namespace Flutter.Controllers
     public class UserController : Controller
     {
         public Repository<User> _repoUser = new Repository<User>();
+        public Repository<FollowTable> _repoFollowTable = new Repository<FollowTable>();
         
         //
         // GET: /User/
@@ -61,5 +62,19 @@ namespace Flutter.Controllers
             ProfileViewModel profile = new ProfileViewModel(username);
             return View(profile);
         }
+
+        [HttpPost]
+        public ActionResult Follow(string username)
+        {
+            var follow = new FollowTable();
+            var following = _repoUser.Get(x => x.UserName == username).First();
+            follow.UserId = following.Id;
+            follow.FollowerId = (Int32)Session["UserId"];
+            _repoFollowTable.Add(follow);
+            _repoFollowTable.SaveChanges();
+            return Redirect("/User/Profile?=" + username);
+        }
+
+
     }
 }
