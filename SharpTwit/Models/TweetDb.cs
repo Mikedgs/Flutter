@@ -13,12 +13,22 @@ namespace Flutter.Models
 
         public void AddTweet(Tweet tweet)
         {
-            tweet.TweetField = tweet.TweetField + " RT ";
             tweet.CreatedAt = DateTime.Now;
             tweet.UpdatedAt = DateTime.Now;
             repo.Add(tweet);
             repo.SaveChanges();
             
+        }
+
+        public void AddRetweet(Tweet tweet)
+        {
+            var originaltwt = repo.FindById(tweet.OriginalTweetId.Value).TweetField;
+            tweet.TweetField = tweet.TweetField + " RT " + originaltwt;
+            tweet.CreatedAt = DateTime.Now;
+            tweet.UpdatedAt = DateTime.Now;
+            repo.Add(tweet);
+            repo.SaveChanges();
+
         }
     }
 }

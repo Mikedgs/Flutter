@@ -1,8 +1,10 @@
 ﻿@using Flutter.Models
 @using SharpTwit
+@using System
 
 @model Tweet
-<h2>Retweet</h2>
+           
+<h2>Retweet: @ViewBag.originaltweetmessage</h2>
 
 <div class="form-class">
     @using (Html.BeginForm("ReTweet", "Tweet"))
