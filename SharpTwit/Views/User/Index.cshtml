@@ -18,23 +18,21 @@
     }   
 </ul>
 
-<a href="/Tweet/Index">Create a new Flut</a>
+<a class="button" href="/Tweet/Index">Create a new Flut</a>
 <br />
 <h2>Followers</h2>
 <ul>
-    @foreach(var user in @Model.UserObject.FollowTablesByFollower)
+    @foreach(var user in @Model.PeopleWhoFollowMe)
     {
-        <li>@user.User.UserName</li>
+        <li><a href="/User/Profile?@user.Id">@user.UserName</a></li>
     }
 </ul>
 
-<h2>Following</h2>
+<h2>People I am following</h2>
 <ul>
     @foreach (var user in @Model.UserObject.FollowTablesByFollower)
     {
-        <li>@user.User.UserName</li>
+        <li><a href="/User/Profile?@user.User.Id">@user.User.UserName</a></li>
     }
 </ul>
-
-<a href="/User/logout">Logout</a>
 
