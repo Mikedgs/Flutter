@@ -8,17 +8,17 @@ using SharpTwit;
 using Flutter;
 using Flutter.Controllers;
 
-//namespace FlutterTests
-//{
-//    [TestFixture]
-//    public class TweetTests
-//    {
-//        [Test]
-//        public void that_created_a_new_tweet_correctly_saves_to_the_database()
-//        {
-//            TweetController classUnderTest = new TweetController();
-//            Tweet tweet = new Tweet() { };
-//            classUnderTest.Tweet(tweet);
-//        }
-//    }
-//}
+namespace FlutterTests
+{
+    [TestFixture]
+    public class TweetTests
+    {
+        [Test]
+        public void that_saving_a_tweet_over_140_chars_()
+        {
+            TweetController classUnderTest = new TweetController();
+            Tweet tweet = new Tweet() { };
+            classUnderTest.Tweet(tweet);
+        }
+    }
+}
